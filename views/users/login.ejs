@@ -1,0 +1,23 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="auth-wrapper page-enter">
+  <div class="auth-card">
+    <h3>Welcome back</h3>
+
+    <form action="/login" method="POST" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input name="username" id="username" type="text" class="form-control" placeholder="Enter your username" required />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" id="password" type="password" class="form-control" placeholder="Enter your password" required />
+      </div>
+      <button type="submit" class="btn-submit" style="width:100%;">Log In</button>
+    </form>
+
+    <p class="auth-footer-text">
+      Don't have an account? <a href="/signup">Sign up</a>
+    </p>
+  </div>
+</div>

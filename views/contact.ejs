@@ -1,0 +1,64 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="page-enter" style="max-width:780px; margin:2.5rem auto; padding:0 1rem 4rem;">
+
+  <h3 style="margin-bottom:.5rem;">Contact Us</h3>
+  <p style="color:var(--grey-text); font-size:.88rem; margin-bottom:2rem;">We'd love to hear from you</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+
+    <div style="background:var(--sand); border:1.5px solid var(--mist); border-radius:var(--radius-md); padding:1.5rem; display:flex; align-items:flex-start; gap:14px;">
+      <i class="fa-solid fa-envelope" style="color:var(--primary); font-size:1.2rem; margin-top:2px;"></i>
+      <div>
+        <div style="font-weight:600; font-size:.9rem; margin-bottom:4px;">Email Us</div>
+        <div style="font-size:.84rem; color:var(--grey-text);">support@wanderstay.com</div>
+      </div>
+    </div>
+
+    <div style="background:var(--sand); border:1.5px solid var(--mist); border-radius:var(--radius-md); padding:1.5rem; display:flex; align-items:flex-start; gap:14px;">
+      <i class="fa-solid fa-phone" style="color:var(--primary); font-size:1.2rem; margin-top:2px;"></i>
+      <div>
+        <div style="font-weight:600; font-size:.9rem; margin-bottom:4px;">Call Us</div>
+        <div style="font-size:.84rem; color:var(--grey-text);">+91 98765 43210</div>
+      </div>
+    </div>
+
+    <div style="background:var(--sand); border:1.5px solid var(--mist); border-radius:var(--radius-md); padding:1.5rem; display:flex; align-items:flex-start; gap:14px;">
+      <i class="fa-solid fa-location-dot" style="color:var(--primary); font-size:1.2rem; margin-top:2px;"></i>
+      <div>
+        <div style="font-weight:600; font-size:.9rem; margin-bottom:4px;">Our Office</div>
+        <div style="font-size:.84rem; color:var(--grey-text);">Mumbai, Maharashtra, India</div>
+      </div>
+    </div>
+
+    <div style="background:var(--sand); border:1.5px solid var(--mist); border-radius:var(--radius-md); padding:1.5rem; display:flex; align-items:flex-start; gap:14px;">
+      <i class="fa-solid fa-clock" style="color:var(--primary); font-size:1.2rem; margin-top:2px;"></i>
+      <div>
+        <div style="font-weight:600; font-size:.9rem; margin-bottom:4px;">Support Hours</div>
+        <div style="font-size:.84rem; color:var(--grey-text);">Mon–Sat, 9am – 6pm IST</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Simple contact form (UI only) -->
+  <div style="background:var(--white); border:1.5px solid var(--mist); border-radius:var(--radius-md); padding:2rem;">
+    <h5 style="margin-bottom:1.25rem;">Send us a message</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Your Name</label>
+      <input type="text" class="form-control" placeholder="John Doe" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email Address</label>
+      <input type="email" class="form-control" placeholder="you@example.com" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Message</label>
+      <textarea class="form-control" rows="4" placeholder="How can we help you?"></textarea>
+    </div>
+    <button class="btn-submit">Send Message</button>
+  </div>
+
+  <a href="/listings" style="display:inline-block; margin-top:1.75rem; color:var(--primary); font-weight:600; font-size:.9rem;">&larr; Back to Listings</a>
+</div>

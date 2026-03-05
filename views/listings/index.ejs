@@ -1,0 +1,64 @@
+<% layout("layouts/boilerplate") %>
+
+<!-- Hero Section -->
+<div class="ws-hero">
+  <div class="ws-hero-bg"></div>
+  <div class="ws-hero-dots"></div>
+  <div class="ws-hero-body">
+    <div class="ws-hero-badge">
+      <span class="ws-hero-dot"></span>
+      Trusted by travellers worldwide
+    </div>
+    <h1>Find your <em>perfect</em> escape, anywhere on earth</h1>
+    <p>Unique homes, cozy retreats, and unforgettable stays — curated by real hosts for real experiences.</p>
+    <div class="ws-hero-cta">
+      <a href="/listings" class="ws-btn-hero">Explore Stays</a>
+      <a href="/listings/new" class="ws-btn-hero-o">Host Your Space</a>
+    </div>
+  </div>
+  <div class="ws-hero-stats">
+    <div><div class="ws-stat-n"><%= allListings.length %>+</div><div class="ws-stat-l">Listings</div></div>
+    <div><div class="ws-stat-n">120+</div><div class="ws-stat-l">Countries</div></div>
+    <div><div class="ws-stat-n">4.9★</div><div class="ws-stat-l">Avg Rating</div></div>
+  </div>
+</div>
+
+<div class="page-enter">
+  <div class="ws-section-head">
+    <% if (q && q.length > 0) { %>
+      <h3><%= allListings.length %> result<%= allListings.length !== 1 ? 's' : '' %> for "<%= q %>"</h3>
+      <a href="/listings" style="font-size:.85rem; color:var(--primary); font-weight:600;">Clear search &times;</a>
+    <% } else { %>
+      <h3>Places you'll love</h3>
+    <% } %>
+  </div>
+
+  <% if (q && allListings.length === 0) { %>
+    <div style="text-align:center; padding:60px 0;">
+      <i class="fa-solid fa-magnifying-glass" style="font-size:2.5rem; color:var(--mist); margin-bottom:16px; display:block;"></i>
+      <h5 style="color:var(--ink2); margin-bottom:8px;">No results found for "<%= q %>"</h5>
+      <p style="color:var(--grey-text); font-size:.9rem;">Try searching by city, country, or listing name.</p>
+      <a href="/listings" style="display:inline-block; margin-top:16px; color:var(--primary); font-weight:600; font-size:.9rem;">Browse all listings &rarr;</a>
+    </div>
+  <% } %>
+  <div class="listings-grid">
+    <% for (let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card listing-card">
+          <img
+            src="<%= listing.image.url %>"
+            class="card-img-top"
+            alt="<%= listing.title %>"
+          />
+          <div class="card-body">
+            <p class="card-listing-title"><%= listing.title %></p>
+            <p class="card-listing-location"><%= listing.location %>, <%= listing.country %></p>
+            <p class="card-listing-price">
+              <strong>&#8377;<%= listing.price?.toLocaleString("en-IN") || "N/A" %></strong> /night
+            </p>
+          </div>
+        </div>
+      </a>
+    <% } %>
+  </div>
+</div>

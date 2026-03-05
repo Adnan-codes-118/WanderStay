@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md sticky-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 14 Q10 8 16 14 Q22 20 28 14 Q34 8 38 14" stroke="#FF5A5F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M4 22 Q10 16 16 22 Q22 28 28 22 Q34 16 38 22" stroke="#1a1a2e" stroke-width="2" fill="none" stroke-linecap="round" opacity=".2"/>
+        <circle cx="34" cy="26" r="3.5" fill="#FF5A5F"/>
+      </svg>
+      <span class="navbar-brand-text">WanderStay</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+
+      <div class="navbar-nav mx-auto">
+        <form class="d-flex search-bar" role="search" action="/listings" method="GET">
+          <input class="search-input" type="search" name="q" placeholder="Search destinations" value="<%= typeof q !== 'undefined' ? q : '' %>" />
+          <button class="btn-search" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-1">
+        <a class="nav-link" href="/listings/new">
+          <i class="fa-solid fa-plus" style="font-size:0.78rem;"></i> Become a host
+        </a>
+
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Log In</b></a>
+        <% } else { %>
+          <span class="nav-username">Hi, <%= currUser.username %></span>
+          <a class="nav-link" href="/logout">Log Out</a>
+        <% } %>
+      </div>
+
+    </div>
+  </div>
+</nav>
