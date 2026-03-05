@@ -11,7 +11,7 @@
   <!-- Meta: host + location (left), price (right) -->
   <div class="show-meta">
     <div class="show-meta-left">
-      <p class="host-label">Hosted by <i><%= listing.owner.username %></i></p>
+      <p class="host-label">Hosted by <i><%= listing.owner ? listing.owner.username : "wanderStay-Owner" %></i></p>
       <p class="location-label">
         <i class="fa-solid fa-location-dot"></i>
         <%= listing.location %>, <%= listing.country %>
@@ -29,7 +29,7 @@
   <p class="show-description"><%= listing.description %></p>
 
   <!-- Owner actions -->
-  <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
+  <% if (currUser && listing.owner && currUser._id.equals(listing.owner._id)) { %>
   <div class="show-actions">
     <a href="/listings/<%= listing._id %>/edit" class="btn-edit">Edit Listing</a>
     <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
