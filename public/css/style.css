@@ -378,3 +378,86 @@ hr.section-divider { border: none; border-top: 1.5px solid var(--mist); margin: 
   .ws-hero-stats { display: none; }
   .ws-hero { min-height: 320px; padding: 40px 5%; }
 }
+
+
+/* ════════════════════════════════════════════════════════════
+   MOBILE FIXES — does not affect desktop layout at all
+   Targets: max-width 767px (phones) and 768–991px (tablets)
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (768px–991px): tighten grid & nav ── */
+@media (max-width: 991px) {
+  .search-bar { width: 260px; }
+  .listings-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem 5%; }
+}
+
+/* ── Phone (≤767px): full mobile treatment ── */
+@media (max-width: 767px) {
+
+  /* Prevent horizontal scroll globally */
+  body, html { overflow-x: hidden; }
+
+  /* NAVBAR: search takes full width when menu is open */
+  .navbar { padding: 0.5rem 1rem !important; }
+  .navbar-collapse { border-top: 1px solid var(--mist); padding-top: 0.75rem; margin-top: 0.5rem; }
+  .navbar-nav.mx-auto { width: 100%; }
+  .search-bar { width: 100%; max-width: 100%; }
+  .navbar-nav.ms-auto { flex-direction: row !important; flex-wrap: wrap; gap: 4px; padding-top: 0.25rem; }
+  .nav-link { font-size: 0.82rem !important; padding: 6px 10px !important; }
+
+  /* HERO: shrink height, stack CTA buttons */
+  .ws-hero { min-height: 260px; padding: 36px 1.25rem; }
+  .ws-hero-stats { display: none; }
+  .ws-hero-body h1 { font-size: 1.6rem; }
+  .ws-hero-cta { flex-direction: column; gap: 10px; }
+  .ws-btn-hero, .ws-btn-hero-o { width: 100%; text-align: center; padding: 11px 20px; font-size: .88rem; }
+
+  /* LISTINGS GRID: 2 columns on phone */
+  .listings-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .listing-card .card-img-top { height: 140px; }
+  .card-listing-title { font-size: 0.87rem; }
+
+  /* SHOW PAGE: tighter, shorter image */
+  .show-page { padding: 1rem 0.85rem 2.5rem; }
+  .show-title { font-size: 1.3rem; }
+  .show-img { height: 230px; border-radius: var(--radius-md); }
+  .show-meta { flex-direction: column; gap: 0.4rem; }
+  .show-description { padding: 1rem; font-size: 0.9rem; }
+  .show-actions { gap: 0.5rem; }
+  .btn-edit, .btn-delete { padding: 9px 18px; font-size: 0.84rem; }
+
+  /* MAP: shorter on phone */
+  #map { height: 240px; border-radius: var(--radius-md); }
+
+  /* REVIEWS: single column */
+  .row.g-3 > .col-md-6 { width: 100% !important; }
+  .review-form-wrap { padding: 1.1rem 1rem; }
+
+  /* FORMS */
+  .form-page { padding: 0 0.85rem 2.5rem; margin-top: 1.25rem; }
+  .form-page h3 { font-size: 1.3rem; }
+  .btn-submit { width: 100%; }
+
+  /* AUTH */
+  .auth-card { padding: 1.75rem 1.1rem; }
+  .auth-wrapper { padding: 1.5rem 0.85rem 2.5rem; }
+
+  /* FOOTER: single column */
+  .footer-main { grid-template-columns: 1fr; gap: 1.75rem; padding: 1.75rem 1.25rem; }
+  .footer-bottom { flex-direction: column; gap: 4px; text-align: center; padding: 1rem 1.25rem; }
+
+  /* Touch targets: min 44px height for tappability */
+  .btn-submit, .btn-edit, .btn-delete, .btn-search,
+  .ws-btn-hero, .ws-btn-hero-o { min-height: 44px; }
+
+  /* Disable hover card lift — avoids sticky hover state on touch */
+  .listing-card:hover { transform: none; box-shadow: var(--shadow-sm) !important; }
+  .listing-card:hover .card-img-top { transform: none; }
+}
+
+/* ── Very small phones (≤380px): single column listings ── */
+@media (max-width: 380px) {
+  .listings-grid { grid-template-columns: 1fr; }
+  .ws-hero-body h1 { font-size: 1.4rem; }
+}
