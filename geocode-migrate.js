@@ -1,18 +1,8 @@
-// ============================================================
-// geocode-migrate.js
-// Run this ONCE to add map coordinates to all old listings.
-//
-// Usage:
-//   node geocode-migrate.js
-//
-// Make sure your .env file has OPENCAGE_API_KEY set before running.
-// ============================================================
-
 require("dotenv").config();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const MONGO_URL = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
 
 async function geocodeLocation(location, country) {
     const query = encodeURIComponent(`${location}, ${country}`);
