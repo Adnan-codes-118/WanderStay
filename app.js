@@ -132,9 +132,18 @@ next(new ExpressError(404,"Page not found!"));
 
 /* ---------------------- ERROR HANDLER ---------------------- */
 
-app.use((err,req,res,next)=>{
-let { statusCode = 500, message = "Something went wrong" } = err;
-res.status(statusCode).render("error.ejs",{message});
+app.use((err, req, res, next) => {
+
+    let { statusCode = 500, message = "Something went wrong" } = err;
+
+    console.error("ERROR:", err);
+
+    if (res.headersSent) {
+        return next(err);
+    }
+
+    res.status(statusCode).render("error.ejs", { message });
+
 });
 
 /* ---------------------- SERVER ---------------------- */
